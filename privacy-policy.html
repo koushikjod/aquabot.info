@@ -189,6 +189,8 @@
       }
     }
     .Section .SectionInner .SectionText h1 {
+      margin-right: auto;
+      margin-left: auto;
       font-size: 26px;
       text-transform: none;
       font-weight: 500;
@@ -201,7 +203,26 @@
         text-align: center;
       }
     }
+
+    .Section .SectionInner .SectionText h2 {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 26px;
+      text-transform: none;
+      font-weight: 500;
+      line-height: 1.5em;
+      margin-top: 0;
+      padding-top: 60px;
+    }
+    @media (max-width: 970px) {
+      .Section .SectionInner .SectionText h2 {
+        text-align: center;
+      }
+    }
     .Section .SectionInner .SectionText p {
+      display: flex;
+      text-align: center;
+      width: 1000px;
       font-size: 19px;
       color: #969899;
       line-height: 1.8em;
@@ -213,6 +234,48 @@
         padding: 0;
       }
     }
+
+
+
+
+    .under_ccpa {
+      margin-right: auto;
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      width: 1000px;
+      font-size: 19px;
+      color: #969899;
+      line-height: 1.8em;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 970px) {
+      .under_ccpa {
+        text-align: center;
+        padding: 0;
+      }
+    }
+
+
+    .ccpa {
+      display: flex;
+      justify-content: left;
+      width: 1000px;
+      font-size: 19px;
+      color: #969899;
+      line-height: 1.8em;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 970px) {
+      .ccpa {
+        text-align: left;
+        padding: 0;
+      }
+    }
+
+
 
     .Section:nth-of-type(even) .SectionInner {
       -webkit-box-orient: horizontal;
@@ -277,7 +340,7 @@
             class="nav-item"
             href="https://aquabot.info/terms-and-conditions"
             onclick="window.location.href === 'https://aquabot.info/terms-and-conditions'"
-            >Terms and conditions</a
+            >Terms & Conditions</a
           >
         </li>
         <li>
@@ -285,18 +348,61 @@
             class="nav-item active"
             href="https://aquabot.info/privacy-policy"
             onclick="window.location.href === 'https://aquabot.info/privacy-policy'"
-            >Privacy policy</a
+            >Privacy Policy</a
           >
         </li>
       </ul>
     </nav>
     <div id="app-mount">
       <div class="page-wrapper">
-        <section class="Section" id="1">
+        <section class="Section">
           <div class="SectionInner">
             <div class="SectionText">
               <h1 style="padding-top: 18px">Privacy policy</h1>
-              <p>privacy policy text here</p>
+              
+              <h2>Consent</h2>
+    
+              <p>By using our service, you hereby consent to our Privacy Policy and agree to its terms.</p>
+              
+              <h2>Information we collect</h2>
+              
+              <p>Usernames</p>
+              <p>User IDs</p>
+              <p>Guild IDs</p>
+              <p>Channel IDs</p>
+              <p>Role IDs</p>
+
+              <h2>How we use your information</h2>
+              
+              <p>We use the information we collect in order to continue to provide a working bot that allows users to do numerous things including, but not limited to: moderation, leveling, welcome message, engaging with the economy system, etc. We do not sell, share, or rent any of your information to any other parties. Information collected and used solely on a needed basis, we will not collect extraneous data</p>    
+              
+              <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+              
+              <p class="under_ccpa">Under the CCPA, among other rights, California consumers have the right to:</p>
+              <p class="ccpa">1. Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
+              <p class="ccpa">2. Request that a business delete any personal data about the consumer that a business has collected.</p>
+              <p class="ccpa">3. Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
+              <p class="ccpa">4. If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+              
+              <h2>GDPR Data Protection Rights</h2>
+              
+              <p class="under_ccpa">We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+              <p class="ccpa">1. The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p>
+              <p class="ccpa">2. The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
+              <p class="ccpa">3. The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</p>
+              <p class="ccpa">4. The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</p>
+              <p class="ccpa">5. The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</p>
+              <p class="ccpa">6. The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
+              <p class="ccpa">7. If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+              
+              <h2>Children's Information</h2>
+              
+              <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+              
+              <p>Aqua Bot does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+
+              <h2>CONTACT:</h2>
+              <p>I can be contacted through the email: support@aquabot.info</p>
             </div>
           </div>
         </section>
@@ -329,7 +435,7 @@
           <div class="hvwg31-2 sZecb">
             <a href="https://aquabot.info/terms-and-conditions" class="hvwg31-4 hzBTNA">Terms</a
             ><a href="https://aquabot.info/privacy-policy" class="hvwg31-4 hzBTNA">Privacy Policy</a
-            ><a href="mailto: parker@pkmeiner.com" class="hvwg31-4 hzBTNA">Contact</a>
+            ><a href="mailto: support@aquabot.info" class="hvwg31-4 hzBTNA">Contact</a>
           </div>
         </div>
       </div>

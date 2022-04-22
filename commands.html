@@ -5,7 +5,7 @@
     there's no trackers, ads, or other evil things.
   </noscript>
   <head profile="http://www.w3.org/2005/10/profile">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=1" />
     <link rel="icon" type="image/png" href="https://aquabot.info/assets/images/32x32.png" />
     <link
@@ -29,7 +29,7 @@
     <meta name="theme-color" content="#ffcbe4" />
     <meta name="apple-mobile-web-app-title" content="Aqua Bot Commands" />
     <meta property="og:title" content="Aqua Bot Commands" />
-    <meta property="og:url" content="https://aquabot.info/" />
+    <meta property="og:url" content="https://aquabot.info" />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
@@ -58,6 +58,124 @@
       content="https://aquabot.info/assets/images/1024x1024.png"
     />
   </head>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    type="text/javascript"
+  ></script>
+  <script>
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js");
+    });
+    $(document).ready(function () {
+      initNavbar();
+    });
+
+    function initNavbar() {
+      // 0 = hide, 1 = visible
+      var menuState = 0;
+      /* Add a Click event listener to btn-select */
+      $(".nav-hamburger").on("click", function () {
+        $(this).toggleClass("change");
+        if (menuState === 0) {
+          $(".nav-menu-options").slideDown("slow");
+          menuState = 1;
+        } else {
+          $(".nav-menu-options").slideUp("slow");
+          menuState = 0;
+        }
+      });
+    }
+    /* eslint-disable */
+
+    //globals for react
+
+    $(document).ready(function () {
+      var successTimeout, errorTimeout;
+
+      if (window.location.hash) {
+        var hash = window.location.hash;
+
+        if (hash) {
+          var parts = hash
+              .replace("module-", "")
+              .replace(/^#?\//, "")
+              .split("-"),
+            tab =
+              hash.indexOf("module-") > -1
+                ? "module-" + parts.join("-")
+                : parts.length > 1
+                ? "module-" + parts[0]
+                : parts[0];
+
+          setTimeout(function () {
+            var $tab = $("#" + tab);
+            var $tabControl = $('.tab-control-legacy[href="#/' + tab + '"]');
+
+            if (parts.length > 1) {
+              var $subtab = $("#" + parts.join("-"));
+              var $subtabControl = $(
+                '.subtab-control-legacy[href="' + "#/" + parts.join("-") + '"]'
+              );
+
+              $subtabControl
+                .closest(".tabs")
+                .find("li")
+                .removeClass("is-active");
+              $subtab
+                .closest(".tab-content")
+                .find(".subtab-content")
+                .removeClass("is-active");
+              $subtabControl.parent().addClass("is-active");
+              $subtab.addClass("is-active");
+            }
+
+            $(".tab-control-legacy").removeClass("is-active");
+            $(".tab-content").removeClass("is-active");
+            $("#loader").removeClass("is-active");
+            $tabControl.addClass("is-active");
+            $tab.addClass("is-active");
+
+            if (parts.length <= 1) return;
+          }, 200);
+        } else {
+          $("#loader").removeClass("is-active");
+          $("#settings").addClass("is-active");
+          $('.tab-control-legacy[href="#/settings"]').addClass("is-active");
+        }
+      } else {
+        $("#loader").removeClass("is-active");
+        $("#settings").addClass("is-active");
+        $('.tab-control-legacy[href="#/settings"]').addClass("is-active");
+      }
+
+      // handle tabs
+      $(".tab-control-legacy").on("click", function (e) {
+        // e.preventDefault();
+        var tab = $(this).attr("href").replace(/^#?\//, "#");
+
+        $(".tab-control-legacy").removeClass("is-active");
+        $(".tab-content").removeClass("is-active");
+        $(this).addClass("is-active");
+        $(tab).addClass("is-active");
+      });
+
+      // handle subtabs
+      $(".subtab-control-legacy").on("click", function (e) {
+        // e.preventDefault();
+        var tab = $(this).attr("href").replace(/^#?\//, "#");
+
+        // $('.subtab-control-legacy').parent().removeClass('is-active');
+        $(this).closest(".tabs").find("li").removeClass("is-active");
+        $(this)
+          .closest(".tab-content")
+          .find(".subtab-content")
+          .removeClass("is-active");
+        $(this).parent().addClass("is-active");
+        $(tab).addClass("is-active");
+      });
+    });
+  </script>
+
   <style>
     /*****************************************************
                        COMMANDS START
@@ -384,7 +502,7 @@
       display: block;
     }
     .page-wrapper .menu {
-      padding: 1em;
+      padding: 1rem;
       background-color: #444;
       border: solid #222 1px;
       padding-top: 1em;
@@ -430,7 +548,7 @@
       background-color: #444;
       height: 50px;
       margin-bottom: 0px !important;
-      padding-left: 24px;
+
     }
     .commands-header-container .commands-header {
       color: white;
@@ -446,7 +564,7 @@
     }
     .commands-container .commands-line {
       border-bottom: 1px solid #333;
-      padding-left: 24px;
+      padding-left: 1rem;
     }
     .commands-container .commands-line:last-child {
       border-bottom: none;
@@ -490,7 +608,7 @@
             class="nav-item"
             href="https://aquabot.info/terms-and-conditions"
             onclick="window.location.href === 'https://aquabot.info/terms-and-conditions'"
-            >Terms and conditions</a
+            >Terms & Conditions</a
           >
         </li>
         <li>
@@ -498,7 +616,7 @@
             class="nav-item"
             href="https://aquabot.info/privacy-policy"
             onclick="window.location.href === 'https://aquabot.info/privacy-policy'"
-            >Privacy policy</a
+            >Privacy Policy</a
           >
         </li>
       </ul>
@@ -516,11 +634,7 @@
                 <aside class="menu">
                   <ul class="menu-list">
                     <li>
-                      <a
-                        href="#/Administration"
-                        class="tab-control-legacy is-active"
-                        >Administration</a
-                      >
+                      <a href="#/Administration" class="tab-control-legacy is-active">Administration</a>
                     </li>
                     <li>
                       <a href="#/Economy" class="tab-control-legacy">Economy</a>
@@ -529,18 +643,13 @@
                       <a href="#/Fun" class="tab-control-legacy">Fun</a>
                     </li>
                     <li>
-                      <a href="#/Logging" class="tab-control-legacy">Logging</a>
-                    </li>
-                    <li>
-                      <a href="#/Misc" class="tab-control-legacy">Misc</a>
-                    </li>
-                    <li>
-                      <a href="#/Moderation" class="tab-control-legacy"
-                        >Moderation</a
-                      >
-                    </li>
-                    <li>
                       <a href="#/Music" class="tab-control-legacy">Music</a>
+                    </li>
+                    <li>
+                      <a href="#/Info" class="tab-control-legacy">Info</a>
+                    </li>
+                    <li>
+                      <a href="#/Moderation" class="tab-control-legacy">Moderation</a>
                     </li>
                   </ul>
                 </aside>
@@ -558,185 +667,140 @@
                   })();
                 </script>
                 <div
-                  id="Administration"
-                  class="container tab-content is-active"
-                >
-                  <div class="columns commands-header-container">
-                    <div class="column is-2 commands-header">Command</div>
-                    <div class="column is-6 commands-header is-hidden-touch">
-                      Description
-                    </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
+                id="Administration"
+                class="container tab-content is-active"
+              >
+                <div class="columns commands-header-container">
+                  <div class="column is-2 commands-header">Command</div>
+                  <div class="column is-6 commands-header is-hidden-touch">
+                    Description
+                  </div>
+                </div>
+                <div class="commands-container columns is-multiline">
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        setlevel
+                      </div>
+                      <div class="column is-6">Sets the channel for level up messages to be sent to</div>
                     </div>
                   </div>
-                  <div class="commands-container columns is-multiline">
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">autorole</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $autorole filler-example
-                        </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        levelreset
                       </div>
+                      <div class="column is-6">Resets all of the levels for everyone in the server</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          captchamode
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $captchamode filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        dellevel
                       </div>
+                      <div class="column is-6">Deletes the channel from our database, and stops sending new level up messages</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          coronastop
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $coronastop filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        levelchannel
                       </div>
+                      <div class="column is-6">Shows the current channel for leveling messages</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          delchannel
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $delchannel filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        setmute
                       </div>
+                      <div class="column is-6">Sets the role that will be given to users whenever you use the `/mute` command</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          levelstop
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $levelstop filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        delmute
                       </div>
+                      <div class="column is-6">Deletes the muted role from our database</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          newchannel
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $newchannel filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        muterole
                       </div>
+                      <div class="column is-6">Sends the current role that is assigned as the muted role for your server</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">prefix</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $prefix filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        setjoin
                       </div>
+                      <div class="column is-6">Sets the channel for messages to be sent whenever a new user joins your server</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">rolestop</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $rolestop filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        deljoin
                       </div>
+                      <div class="column is-6">Deletes the channel from our database, and stops sending new user messages</div>
                     </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          setcoronachannel
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $setcoronachannel filler-example
-                        </div>
+                  </div>
+                  <div class="commands-line column is-12">
+                    <div class="columns">
+                      <div class="column is-2 has-text-primary">
+                        joinchannel
                       </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          setwelcomechannel
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $setwelcomechannel filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          setwelcomemsg
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $setwelcomemsg filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          verifyrole
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $verifyrole filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          welcomestop
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $welcomestop filler-example
-                        </div>
-                      </div>
+                      <div class="column is-6">Sends the current channel that is assigned as the new user messages channel</div>
                     </div>
                   </div>
                 </div>
+              </div>
                 <div id="Economy" class="container tab-content">
                   <div class="columns commands-header-container">
                     <div class="column is-2 commands-header">Command</div>
                     <div class="column is-6 commands-header is-hidden-touch">
                       Description
                     </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
-                    </div>
                   </div>
                   <div class="commands-container columns is-multiline">
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">quiz</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $quiz filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">add</div>
+                        <div class="column is-6">Gives you $2,500. Can be run every 2 hours</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">reward</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $reward filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">shop</div>
+                        <div class="column is-6">Gives you the shop menus so that you can buy items</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">blackjack</div>
+                        <div class="column is-6">Play a game of blackjack against the dealer (dealer will hit up to 17)</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">slots</div>
+                        <div class="column is-6">Test your luck by betting money on the slot machines</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">profile</div>
+                        <div class="column is-6">Shows the amount of money and ranks that a user has</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">leaderboard</div>
+                        <div class="column is-6">Shows the top 5 players with the most money. This is a global leaderboard and not per server</div>
                       </div>
                     </div>
                   </div>
@@ -747,236 +811,172 @@
                     <div class="column is-6 commands-header is-hidden-touch">
                       Description
                     </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
-                    </div>
                   </div>
                   <div class="commands-container columns is-multiline">
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">level</div>
+                        <div class="column is-6">Sends your current level in the server</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">
+                          levelboard
+                        </div>
+                        <div class="column is-6">Sends the current leaderboard for your servers leveling system</div>
+                      </div>
+                    </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
                         <div class="column is-2 has-text-primary">ping</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $ping filler-example
-                        </div>
+                        <div class="column is-6">Gives the current ping of the bot</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          rock paper scissors
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $rock paper scissors filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">droll</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $droll filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">cflip</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $cflip filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">8ball</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $8ball filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">new</div>
+                        <div class="column is-6">Sends all of the changes to the bot</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="Logging" class="container tab-content">
+                <div id="Music" class="container tab-content">
                   <div class="columns commands-header-container">
-                    <div class="column is-2 commands-header">Command</div>
+                    <div class="column is-2 commands-header">Music</div>
                     <div class="column is-6 commands-header is-hidden-touch">
                       Description
-                    </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
                     </div>
                   </div>
                   <div class="commands-container columns is-multiline">
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">joinlog</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $joinlog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">play</div>
+                        <div class="column is-6">Searches YouTube, and then plays the top song - You can also send a link</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">modlog</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $modlog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">skip</div>
+                        <div class="column is-6">Skips the song that is currently playing</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          remjoinlog
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $remjoinlog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">queue</div>
+                        <div class="column is-6">Sends all of the songs that are in the queue</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          remrolelog
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $remrolelog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">remove</div>
+                        <div class="column is-6">Removes the specified song from the queue</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          remuserlog
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $remuserlog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">stop</div>
+                        <div class="column is-6">Stops music, clears queue, and leaves VC</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">rolelog</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $rolelog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">clear</div>
+                        <div class="column is-6">Removes ALL songs in the queue</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">userlog</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $userlog filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">repeat</div>
+                        <div class="column is-6">Repeats the song that is playing. Run the command again to stop repeating</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">shuffle</div>
+                        <div class="column is-6">Will play a random song in the queue. Run the command again to stop shuffling</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">np</div>
+                        <div class="column is-6">Sends the song that is currently playing</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">pause</div>
+                        <div class="column is-6">Pauses the currently playing song</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">resume</div>
+                        <div class="column is-6">Resumes the paused song</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="Misc" class="container tab-content">
+                <div id="Info" class="container tab-content">
                   <div class="columns commands-header-container">
                     <div class="column is-2 commands-header">Command</div>
                     <div class="column is-6 commands-header is-hidden-touch">
                       Description
                     </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
-                    </div>
                   </div>
                   <div class="commands-container columns is-multiline">
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">bitcoin</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $bitcoin filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">prices</div>
+                        <div class="column is-6">Shows the prices for the 20 cryptocurrencies that we currently list</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">time</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $time filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">crypto</div>
+                        <div class="column is-6">Shows expanded information on the specific currency given its ticker</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">userinfo</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $userinfo filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          botsuggest
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $botsuggest filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">stats</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $stats filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">vote</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $vote filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          portfolio
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $portfolio filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">covid</div>
+                        <div class="column is-6">Sends the current global COVID-19 data</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
                         <div class="column is-2 has-text-primary">invite</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $invite filler-example
-                        </div>
+                        <div class="column is-6">Sends the invite for the bot and the official support server</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">verify</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $verify filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">userinfo</div>
+                        <div class="column is-6">Gives information on a member in your server. Information includes account creation date, when they joined your server, and some more</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">botinfo</div>
+                        <div class="column is-6">Gives information on the bot</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">vote</div>
+                        <div class="column is-6">Sends the link for you to vote for our bot on top.gg</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">bug</div>
+                        <div class="column is-6">Sends a form to be filled out to notify the developer of a bug</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">feedback</div>
+                        <div class="column is-6">Shows a form to be filled out to show the developer feedback on the bot</div>
                       </div>
                     </div>
                   </div>
@@ -987,168 +987,66 @@
                     <div class="column is-6 commands-header is-hidden-touch">
                       Description
                     </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
-                    </div>
                   </div>
                   <div class="commands-container columns is-multiline">
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">ban</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $ban filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">
-                          clearwarn
-                        </div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $clearwarn filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">warn</div>
+                        <div class="column is-6">Warn a member for doing something against the rules</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
                         <div class="column is-2 has-text-primary">delwarn</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $delwarn filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">kick</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $kick filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">mute</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $mute filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">muterole</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $muterole filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">purge</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $purge filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">tempmute</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $tempmute filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">unban</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $unban filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">unmute</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $unmute filler-example
-                        </div>
-                      </div>
-                    </div>
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">warn</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $warn filler-example
-                        </div>
+                        <div class="column is-6">Delete a warning from a member so that it is no longer on their record</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
                         <div class="column is-2 has-text-primary">warnings</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $warnings filler-example
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="Music" class="container tab-content">
-                  <div class="columns commands-header-container">
-                    <div class="column is-2 commands-header">Command</div>
-                    <div class="column is-6 commands-header is-hidden-touch">
-                      Description
-                    </div>
-                    <div class="column is-4 commands-header is-hidden-touch">
-                      Usage
-                    </div>
-                  </div>
-                  <div class="commands-container columns is-multiline">
-                    <div class="commands-line column is-12">
-                      <div class="columns">
-                        <div class="column is-2 has-text-primary">clear</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $clear filler-example
-                        </div>
+                        <div class="column is-6">See all of the warnings for a member. Also includes when they were warned, and who warned them</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">play</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $play filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">mute</div>
+                        <div class="column is-6">Mute a member so they can't send anymore messages</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">skip</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $skip filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">tempmute</div>
+                        <div class="column is-6">Mutes the member temporarily, they will be unmuted once the specified time has passed</div>
                       </div>
                     </div>
                     <div class="commands-line column is-12">
                       <div class="columns">
-                        <div class="column is-2 has-text-primary">stop</div>
-                        <div class="column is-6">filler-description</div>
-                        <div class="column is-4 has-text-grey">
-                          $stop filler-example
-                        </div>
+                        <div class="column is-2 has-text-primary">unmute</div>
+                        <div class="column is-6">Unmute a member so they are able to send messages again</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">purge</div>
+                        <div class="column is-6">Delete messages from your server. Max amount that can be deleted at one time is `100` messages</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">kick</div>
+                        <div class="column is-6">Kick a member from your server. They will be able to join back with a new invite</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">ban</div>
+                        <div class="column is-6">Ban a member from your server. They will not be able to join back until they are unbanned</div>
+                      </div>
+                    </div>
+                    <div class="commands-line column is-12">
+                      <div class="columns">
+                        <div class="column is-2 has-text-primary">softban</div>
+                        <div class="column is-6">This command will ban and then immediately unban the member in order to get rid of their message history</div>
                       </div>
                     </div>
                   </div>
@@ -1186,7 +1084,7 @@
           <div class="hvwg31-2 sZecb">
             <a href="https://aquabot.info/terms-and-conditions" class="hvwg31-4 hzBTNA">Terms</a
             ><a href="https://aquabot.info/privacy-policy" class="hvwg31-4 hzBTNA">Privacy Policy</a
-            ><a href="mailto: parker@pkmeiner.com" class="hvwg31-4 hzBTNA">Contact</a>
+            ><a href="mailto: support@aquabot.info" class="hvwg31-4 hzBTNA">Contact</a>
           </div>
         </div>
       </div>
@@ -1669,5 +1567,7 @@
         padding-inline-end: 30px;
       }
     </style>
+    <script type="text/javascript" src="/log.js"></script>
   </body>
 </html>
+
