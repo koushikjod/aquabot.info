@@ -174,7 +174,7 @@
       -ms-flex-align: start;
       -webkit-align-items: flex-start;
       align-items: flex-start;
-      padding-inline-end: 100px;
+
     }
     @media (max-width: 970px) {
       .Section .SectionInner .SectionText {
@@ -191,9 +191,9 @@
     .Section .SectionInner .SectionText h1 {
       margin-right: auto;
       margin-left: auto;
-      font-size: 26px;
+      font-size: 40px;
       text-transform: none;
-      font-weight: 500;
+      font-weight: 700;
       line-height: 1.5em;
       margin-top: 0;
       padding-top: 0;
@@ -220,19 +220,29 @@
       }
     }
     .Section .SectionInner .SectionText p {
-      display: flex;
       text-align: center;
       width: 1000px;
       font-size: 19px;
       color: #969899;
       line-height: 1.8em;
       margin-top: 5px;
+      margin-left: 30px;
     }
     @media (max-width: 970px) {
       .Section .SectionInner .SectionText p {
         text-align: center;
         padding: 0;
       }
+    }
+
+    .Section .SectionInner .SectionText li {
+      text-align: center;
+      width: 1000px;
+      font-size: 19px;
+      color: #969899;
+      line-height: 1.8em;
+      margin-top: 5px;
+      padding-right: 30px;
     }
 
 
@@ -310,99 +320,32 @@
   </style>
 
   <body>
-    <nav class="navbar-menu">
-      <div class="nav-menu-select">
-        <a class="nav-hamburger">
-          <div class="hamburger bar1"></div>
-          <div class="hamburger bar2"></div>
-          <div class="hamburger bar3"></div>
-        </a>
-      </div>
-      <ul class="nav-menu-options">
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info"
-            onclick="window.location.href === 'https://aquabot.info'"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info/commands"
-            onclick="window.location.href === 'https://aquabot.info/commands'"
-            >Commands</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info/terms-and-conditions"
-            onclick="window.location.href === 'https://aquabot.info/terms-and-conditions'"
-            >Terms & Conditions</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item active"
-            href="https://aquabot.info/privacy-policy"
-            onclick="window.location.href === 'https://aquabot.info/privacy-policy'"
-            >Privacy Policy</a
-          >
-        </li>
-      </ul>
-    </nav>
+
+    <header>
+      <a href="/index.html">
+      <img class="logo" src="assets/images2/1024x1024.png" alt="logo">
+      </a>
+      <nav>
+          <ul class="nav_links">
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/commands.html">Commands</a></li>
+              <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
+              <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+      </nav>
+      <a class="cta" href="https://discord.gg/fAD3jcexzM" target="_blank" ><button>Support</button></a>
+  </header>
+
     <div id="app-mount">
       <div class="page-wrapper">
         <section class="Section">
           <div class="SectionInner">
             <div class="SectionText">
-              <h1 style="padding-top: 18px">Privacy policy</h1>
-              
-              <h2>Consent</h2>
-    
-              <p>By using our service, you hereby consent to our Privacy Policy and agree to its terms.</p>
-              
-              <h2>Information we collect</h2>
-              
-              <p>Usernames</p>
-              <p>User IDs</p>
-              <p>Guild IDs</p>
-              <p>Channel IDs</p>
-              <p>Role IDs</p>
+              <h1 style="padding-top: 18px">PRIVACY POLICY</h1>
 
-              <h2>How we use your information</h2>
+              <p>By using our service, you hereby consent to the collection of data including, but not limited to: Usernames, User IDs, Guild IDs, Channel IDs, and Role IDs. This information is collected in order to maintain service functionality. Your data can be deleted through the use of built-in deletion commands (check Commands tab to find them) or by emailing support@aquabot.info.</p>
               
-              <p>We use the information we collect in order to continue to provide a working bot that allows users to do numerous things including, but not limited to: moderation, leveling, welcome message, engaging with the economy system, etc. We do not sell, share, or rent any of your information to any other parties. Information collected and used solely on a needed basis, we will not collect extraneous data</p>    
-              
-              <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
-              
-              <p class="under_ccpa">Under the CCPA, among other rights, California consumers have the right to:</p>
-              <p class="ccpa">1. Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
-              <p class="ccpa">2. Request that a business delete any personal data about the consumer that a business has collected.</p>
-              <p class="ccpa">3. Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
-              <p class="ccpa">4. If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
-              
-              <h2>GDPR Data Protection Rights</h2>
-              
-              <p class="under_ccpa">We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
-              <p class="ccpa">1. The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p>
-              <p class="ccpa">2. The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
-              <p class="ccpa">3. The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</p>
-              <p class="ccpa">4. The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</p>
-              <p class="ccpa">5. The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</p>
-              <p class="ccpa">6. The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
-              <p class="ccpa">7. If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
-              
-              <h2>Children's Information</h2>
-              
-              <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-              
-              <p>Aqua Bot does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
 
-              <h2>CONTACT:</h2>
-              <p>I can be contacted through the email: support@aquabot.info</p>
             </div>
           </div>
         </section>
@@ -464,124 +407,100 @@
       /*****************************************************      
                    NAV BAR START
   *****************************************************/
-      .active {
-        background-color: #444;
-      }
-      .navbar-menu {
-        background-color: #333;
-        display: flex;
-        width: calc(100%);
-        overflow: auto;
-        position: sticky;
-        position: -webkit-sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      .navbar-menu a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 17px;
-        cursor: pointer;
-      }
+  li, a, button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
 
-      .navbar-menu a:hover {
-        background-color: #444;
-        color: #fff;
-      }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    margin-bottom: 4em;
+}
 
-      .nav-menu-options li a {
-        display: block;
-        padding: 18px;
-      }
+.logo {
+    cursor: pointer;
+    max-width: 80px;
+    margin-left: 80px;
+}
 
-      .nav-menu-select {
+@media (max-width: 970px) {
+    .logo {
         margin: 0;
-        text-align: left;
-        height: inherit;
-      }
-      .nav-hamburger {
-        display: inline-block;
-        padding: 13px;
-      }
+        width: 60px;
+    }
+}
 
-      .nav-menu-options {
-        display: block;
-        text-align: left;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        background-color: inherit;
-      }
-      
+.nav_links {
+    list-style: none;
+}
 
-      /* DESKTOP */
-      @media screen and (min-width: 750px) {
-        .nav-menu-select {
-          display: none;
-        }
-        .nav-menu-options {
-          display: block !important;
-          border-bottom: 0;
-        }
-        .nav-menu-options li {
-          display: inline-block;
-        }
-      }
-      /* MOBILE */
-      @media screen and (max-width: 750px) {
-        .navbar-menu {
-          margin: 0;
-        }
-        .nav-menu-options {
-          display: none;
-          position: relative;
-          text-align: center;
-        }
-        .nav-menu-options li {
-          display: block;
-        }
-      }
-      .hamburger {
-        width: 25px;
-        height: 2px;
-        background-color: #000;
-        margin: 6px 0;
-        transition: 0.4s;
-      }
-      .nav-hamburger:before {
-        content: "";
-        position: absolute;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        width: 40px;
-        height: 40px;
-        border: 2px solid transparent;
-        top: 8px;
-        left: 7px;
-        border-radius: 100%;
-        -webkit-transition: all 0.4s ease-in-out;
-        -o-transition: all 0.4s ease-in-out;
-        transition: all 0.4s ease-in-out;
-        z-index: 1;
-      }
-      .nav-hamburger.change:before {
-        border: 2px solid currentColor;
-      }
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
 
-      .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-4px, 7px);
-        transform: rotate(-45deg) translate(-4px, 7px);
-      }
+@media (max-width: 970px) {
+    .nav_links li {
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -o-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        padding-inline-end: 0px;
+        margin: 10px;
+        margin-right: 40px;
+        text-align: center;
+        padding-left: 20px;
+        font-size: 2px;
+    }
+}
 
-      .change .bar2 {
-        opacity: 0;
-      }
+.nav_links li a {
+    transition: all 0.3s ease 0s; 
+}
 
-      .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-4px, -7px);
-        transform: rotate(45deg) translate(-4px, -7px);
-      }
+.nav_links li a:hover {
+    color: #0088A9;
+}
+
+@media (max-width: 970px) {
+    .nav_links li a{
+        font-size: 12px;
+    }
+}
+
+.cta {
+    margin-right: 70px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0,136,169,0.8);
+}
+
+@media (max-width: 970px) {
+    .cta {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
       /*****************************************************      
                    NAV BAR END
   *****************************************************/

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <noscript>
-    Please enable JavaScript. This website won't work without it. I promise
-    there's no trackers, ads, or other evil things.
-  </noscript>
+<html lang="en">
   <head profile="http://www.w3.org/2005/10/profile">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=1" />
@@ -25,8 +21,13 @@
       sizes="256x256"
       href="https://aquabot.info/assets/images/256x256.png"
     />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Aqua Bot Home</title>
-    <meta name="theme-color" content="#ffcbe4" />
+
+    <meta name="theme-color" content="#0088a9" />
     <meta name="apple-mobile-web-app-title" content="Aqua Bot Home" />
     <meta property="og:title" content="Aqua Bot Home" />
     <meta property="og:url" content="https://aquabot.info" />
@@ -59,1198 +60,185 @@
     />
   </head>
 
-  <style>
-    /*****************************************************      
-                   NAV BAR START
-  *****************************************************/
-
-    .active {
-      font-family: "Montserrat";
-      background-color: #444;
-    }
-    .navbar-menu {
-      background-color: #333;
-      display: flex;
-      width: calc(100%);
-      overflow: auto;
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar-menu a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .navbar-menu a:hover {
-      background-color: #444;
-      color: #fff;
-    }
-
-    .nav-menu-options li a {
-      display: block;
-      padding: 18px;
-    }
-
-    .nav-menu-select {
-      margin: 0;
-      text-align: center;
-      height: inherit;
-    }
-    .nav-hamburger {
-      display: inline-block;
-      padding: 13px;
-    }
-
-    .nav-menu-options {
-      display: block;
-      text-align: center;
-      width: 100%;
-      margin: 0px;
-      padding: 0px;
-      background-color: inherit;
-    }
-
-    /* DESKTOP */
-    @media screen and (min-width: 750px) {
-      .nav-menu-select {
-        display: none;
-      }
-      .nav-menu-options {
-        display: block !important;
-        border-bottom: 0;
-      }
-      .nav-menu-options li {
-        display: inline-block;
-      }
-    }
-    /* MOBILE */
-    @media screen and (max-width: 750px) {
-      .navbar-menu {
-        margin: 0;
-      }
-      .nav-menu-options {
-        display: none;
-        position: relative;
-        text-align: center;
-      }
-      .nav-menu-options li {
-        display: block;
-      }
-    }
-    .hamburger {
-      width: 25px;
-      height: 2px;
-      background-color: #000;
-      margin: 6px 0;
-      transition: 0.4s;
-    }
-    .nav-hamburger:before {
-      content: "";
-      position: absolute;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 40px;
-      height: 40px;
-      border: 2px solid transparent;
-      top: 8px;
-      left: 7px;
-      border-radius: 100%;
-      -webkit-transition: all 0.4s ease-in-out;
-      -o-transition: all 0.4s ease-in-out;
-      transition: all 0.4s ease-in-out;
-      z-index: 1;
-    }
-    .nav-hamburger.change:before {
-      border: 2px solid currentColor;
-    }
-
-    .change .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-4px, 7px);
-      transform: rotate(-45deg) translate(-4px, 7px);
-    }
-
-    .change .bar2 {
-      opacity: 0;
-    }
-
-    .change .bar3 {
-      -webkit-transform: rotate(45deg) translate(-4px, -7px);
-      transform: rotate(45deg) translate(-4px, -7px);
-    }
-    /*****************************************************      
-                   NAV BAR END
-  *****************************************************/
-    html {
-      height: 100%;
-      margin: 0;
-    }
-    body {
-      min-height: 100%;
-      margin: 0;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #17181b;
-      font-family: "Montserrat";
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.87);
-    }
-
-    body::-webkit-scrollbar {
-      width: 1em;
-    }
-
-    body::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background-color: #444;
-      outline: 1px solid #333;
-    }
-
-    .Aqua {
-      box-sizing: border-box;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      -o-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      padding-top: 300px;
-      padding-bottom: 300px;
-    }
-    @media (max-width: 640px) {
-      .Aqua {
-        padding-top: 150px;
-        padding-bottom: 150px;
-      }
-    }
-    .Aqua h1 {
-      text-transform: none;
-      font-size: 38px;
-      line-height: 1.3;
-      text-align: center;
-    }
-    @media (max-width: 640px) {
-      .Aqua h1 {
-        font-size: 35px;
-      }
-    }
-    .Aqua p {
-      font-size: 19px;
-      margin-top: 15px;
-      margin-bottom: 18px;
-      text-align: center;
-      line-height: 1.8;
-    }
-    @media (max-width: 640px) {
-      .Aqua p {
-        font-size: 16px;
-      }
-    }
-    .Aqua .AquaInner {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -o-box-orient: vertical;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      -o-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-      padding: 0 50px;
-      max-width: 100%;
-    }
-    .Aqua .AquaInner .AquaButtons {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      margin-top: 15px;
-    }
-    @media (max-width: 970px) {
-      .Aqua .AquaInner .AquaButtons {
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        -o-box-orient: vertical;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-    }
-    .Aqua .AquaInner .AquaButtons .AquaButtonWrapper {
-      width: 300px;
-    }
-    .Aqua .AquaInner .AquaButtons .AquaButtonWrapper {
-      margin-inline-end: 15px;
-    }
-
-    @media (max-width: 970px) {
-      .Aqua .AquaInner .AquaButtons .AquaButtonWrapper {
-        margin-inline-end: 0;
-        margin-bottom: 15px;
-      }
-    }
-    .Section {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      width: 100%;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      -o-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      -o-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -o-box-orient: vertical;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      padding: 0 40px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    .Section:after {
-      content: "";
-      display: block;
-      width: 50%;
-      margin: 150px 0;
-    }
-    @media (max-width: 970px) {
-      .Section:after {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-    }
-    .Section .SectionInner {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      -o-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      -o-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-      max-width: 1440px;
-      -webkit-box-direction: reverse;
-      -moz-box-direction: reverse;
-      -o-box-direction: reverse;
-      -webkit-box-orient: horizontal;
-      -moz-box-orient: horizontal;
-      -o-box-orient: horizontal;
-      -webkit-flex-direction: row-reverse;
-      -ms-flex-direction: row-reverse;
-      flex-direction: row-reverse;
-    }
-    @media (max-width: 970px) {
-      .Section .SectionInner {
-        max-width: 750px;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        -o-box-orient: vertical;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-    }
-    .Section .SectionInner .SectionText {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      -o-box-flex: 1;
-      box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -o-box-orient: vertical;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      -o-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: start;
-      -moz-box-align: start;
-      -o-box-align: start;
-      -ms-flex-align: start;
-      -webkit-align-items: flex-start;
-      align-items: flex-start;
-      padding-inline-end: 100px;
-    }
-    @media (max-width: 970px) {
-      .Section .SectionInner .SectionText {
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        -o-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        padding-inline-end: 0px;
-        margin-top: 55px;
-      }
-    }
-    .Section .SectionInner .SectionText h1 {
-      font-size: 26px;
-      text-transform: none;
-      font-weight: 500;
-      line-height: 1.5em;
-      margin-top: 0;
-      padding-top: 0;
-    }
-    @media (max-width: 970px) {
-      .Section .SectionInner .SectionText h1 {
-        text-align: center;
-      }
-    }
-    .Section .SectionInner .SectionText p {
-      font-size: 19px;
-      color: #969899;
-      line-height: 1.8em;
-      margin-top: 5px;
-    }
-    @media (max-width: 970px) {
-      .Section .SectionInner .SectionText p {
-        text-align: center;
-        padding: 0;
-      }
-    }
-    .Section .SectionInner .SectionImg {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      -o-box-flex: 1;
-      box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -o-box-orient: vertical;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      -o-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      -o-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    .Section .SectionInner .SectionImg img {
-      width: 100%;
-    }
-    .Section:nth-of-type(even) .SectionInner {
-      -webkit-box-orient: horizontal;
-      -moz-box-orient: horizontal;
-      -o-box-orient: horizontal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-    }
-    @media (max-width: 970px) {
-      .Section:nth-of-type(even) .SectionInner {
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        -o-box-orient: vertical;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-    }
-    .Section:nth-of-type(even) .SectionText {
-      padding-inline-start: 100px;
-      padding-inline-end: 0;
-    }
-    @media (max-width: 970px) {
-      .Section:nth-of-type(even) .SectionText {
-        padding-inline-start: 0;
-      }
-      .Section:nth-of-type(even) .SectionText p {
-        text-align: center;
-      }
-    }
-    .button.brand.default.large.grow {
-      width: 300px;
-      height: 60px;
-      border: none;
-      border-radius: 3px;
-      color: #ffffff;
-      background-color: #62d3f5;
-    }
-
-    body,
-    h1,
-    p {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border: 0;
-      font-family: "Montserrat";
-      font-size: 100%;
-      font-style: inherit;
-      font-weight: inherit;
-      margin: 0;
-      outline: 0;
-      padding: 0;
-      vertical-align: baseline;
-    }
-    .button.black.default.large.grow {
-      width: 300px;
-      height: 60px;
-      border: none;
-      border-radius: 3px;
-      color: #ffffff;
-      background-color: #000;
-    }
-    .button.brand.default.large.grow:hover {
-      background-color: #32c5f2;
-    }
-    .button.brand.default.large.grow:focus {
-      background-color: #0eb1e2;
-    }
-    .button.brand.ghost {
-      border: 1px solid rgba(98, 211, 245, 0.3);
-      color: #62d3f5;
-      background: transparent;
-    }
-    .button.brand.ghost:hover {
-      border: 1px solid rgba(98, 211, 245, 0.5);
-    }
-    .button.brand.ghost:focus {
-      border: 1px solid #62d3f5;
-      background-color: rgba(98, 211, 245, 0.1);
-    }
-    .button.brand.default.large.grow:hover {
-      background-color: #32c5f2;
-    }
-    .button.brand.default.large.grow:focus {
-      background-color: #0eb1e2;
-    }
-    .button.brand.ghost {
-      border: 1px solid rgba(98, 211, 245, 0.3);
-      color: #62d3f5;
-      background: transparent;
-    }
-    .button.brand.ghost:hover {
-      border: 1px solid rgba(98, 211, 245, 0.5);
-    }
-    .button.brand.ghost:focus {
-      border: 1px solid #62d3f5;
-      background-color: rgba(98, 211, 245, 0.1);
-    }
-
-    .emoji-mart-emoji {
-      position: relative;
-      display: inline-block;
-      font-size: 0;
-      margin: 0;
-      padding: 0;
-      border: none;
-      background: none;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      cursor: pointer;
-    }
-    .emoji-mart-emoji span {
-      cursor: pointer !important;
-    }
-    a {
-      text-decoration: none;
-    }
-    a,
-    div,
-    h2,
-    img,
-    p,
-    span {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border: 0;
-      font-family: "Montserrat";
-      font-size: 100%;
-      font-style: inherit;
-      font-weight: inherit;
-      margin: 0;
-      outline: 0;
-      padding: 0;
-      vertical-align: baseline;
-    }
-    button {
-      outline: none;
-    }
-    h2 {
-      font-family: "Montserrat" !important;
-      text-transform: uppercase;
-      color: #fff;
-      padding: 20px 0 10px 0;
-      font-size: 17px;
-      font-weight: 600;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -moz-box-orient: horizontal;
-      -o-box-orient: horizontal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      -o-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-      line-height: 1;
-    }
-
-    .eSjOZD {
-      position: relative;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      justify-content: center;
-      transition: all 0.15s ease-in-out 0s;
-      background-color: rgb(23, 24, 27);
-    }
-    .hlBFRk {
-      position: relative;
-      flex-direction: row;
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: justify;
-      justify-content: space-between;
-      align-self: center;
-      margin-bottom: 64px;
-      padding: 16px 72px;
-      max-width: 1600px;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    @media (max-width: 970px) {
-      .hlBFRk {
-        padding: 16px;
-      }
-    }
-    @media (max-width: 970px) {
-      .hlBFRk {
-        margin-top: 32px;
-        width: 95%;
-        flex-direction: column;
-        border-bottom: 0px !important;
-        padding-top: 32px !important;
-      }
-    }
-    .hNlZZA {
-      position: relative;
-      flex-direction: row;
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: justify;
-      justify-content: space-between;
-      align-self: center;
-      margin-bottom: 64px;
-      padding: 16px 72px;
-      max-width: 1600px;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    @media (max-width: 970px) {
-      .hNlZZA {
-        padding: 16px;
-      }
-    }
-    @media (max-width: 970px) {
-      .hNlZZA {
-        margin-top: 32px;
-        flex-direction: column-reverse;
-        width: 95%;
-        display: none;
-        border-bottom: 0px !important;
-        padding-top: 32px !important;
-      }
-    }
-    .LBBcq {
-      display: flex;
-      margin: 32px 0px;
-    }
-    .LBBcq > * {
-      margin-inline-end: 16px;
-    }
-    @media (max-width: 970px) {
-      .LBBcq {
-        flex-direction: column;
-        -webkit-box-pack: start;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin: 32px 0px 0px;
-        width: 260px;
-      }
-      .LBBcq > * {
-        margin-bottom: 16px;
-        width: 100%;
-      }
-    }
-    @media (max-width: 670px) {
-      .LBBcq {
-        flex-direction: column;
-        width: 95%;
-        margin: 32px auto auto;
-      }
-      .LBBcq > * {
-        margin-inline-end: 0px;
-        margin-bottom: 16px;
-        width: 100%;
-      }
-    }
-    .cfUtWc {
-      font-family: "Montserrat" !important;
-      font-weight: bold;
-      font-size: 23px;
-      letter-spacing: 0.55px;
-      text-align: start;
-      text-decoration: none;
-      color: white;
-    }
-    .ilXNtH {
-      white-space: nowrap;
-      user-select: none;
-      line-height: 1;
-      font-weight: 400;
-      display: flex;
-      border-radius: 3px;
-      -webkit-box-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      align-items: center;
-      transition: border 180ms ease-out 0s, background 180ms ease-out 0s;
-      font-family: "Montserrat" !important;
-      font-size: 15px;
-      padding: 20px;
-      color: rgb(255, 255, 255);
-      background: rgb(90, 192, 222);
-      border: none;
-      cursor: pointer;
-      min-height: 32px;
-      min-width: 60px;
-      width: unset;
-    }
-    .ilXNtH:hover {
-      background: rgb(39, 161, 196);
-    }
-    .ilXNtH:focus {
-      background: rgb(27, 108, 133);
-    }
-    .ilXNtH:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-    .bnAVxc {
-      position: relative;
-      width: 100%;
-    }
-    .eOGYQs {
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      justify-content: center;
-      margin-left: auto;
-      opacity: 0.6;
-      height: 50px;
-      width: 35px;
-      padding-inline-end: 10px;
-    }
-    .eOGYQs img {
-      transform: rotate(0deg);
-    }
-    .jVikpb {
-      position: relative;
-      background: rgb(43, 47, 51);
-      width: 100%;
-      min-height: 50px;
-      border: 1px solid rgb(26, 26, 26);
-      border-radius: 3px;
-      font-size: 14px;
-      font-weight: 400;
-      outline: none;
-      cursor: pointer;
-      box-sizing: border-box;
-      transition: border 250ms ease-out 0s;
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      user-select: none;
-      opacity: 1;
-    }
-    .jVikpb:hover {
-      border-color: rgb(0, 0, 0);
-    }
-    .hzjoSM {
-      padding-inline-start: 11px;
-      display: flex;
-      flex: 1 1 0%;
-      -webkit-box-align: center;
-      align-items: center;
-      min-height: 50px;
-      margin: 0px;
-      overflow: hidden;
-    }
-    .kKbACM {
-      font-family: "Montserrat" !important;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      color: rgb(255, 255, 255);
-    }
-    .fPyplI {
-      margin-inline-end: 1em;
-    }
-    .fPyplI .p13wxv-8 {
-      min-height: unset;
-      height: 45px;
-      border-radius: 5px;
-    }
-    .iebjQa {
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      font-size: 14px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow-x: hidden;
-    }
-    .iebjQa span:first-of-type {
-      margin-inline-end: 7px;
-      display: flex;
-      flex-direction: row;
-      -webkit-box-align: center;
-      align-items: center;
-    }
-    .bwxDch {
-      opacity: 0.48;
-      color: rgb(255, 255, 255);
-      text-align: start;
-      font-size: 14px !important;
-    }
-    @media (max-width: 970px) {
-      .bwxDch {
-        margin-bottom: 32px;
-        min-width: 300px !important;
-      }
-    }
-    .sZecb {
-      margin-bottom: 64px;
-      width: 160px;
-      display: flex;
-      flex-direction: column;
-    }
-    @media (max-width: 670px) {
-      .sZecb {
-        margin-bottom: 16px;
-      }
-    }
-    .kpjVPj {
-      display: flex;
-      -webkit-box-pack: justify;
-      justify-content: space-between;
-      flex: 1 1 0%;
-      max-width: 630px;
-    }
-    @media (max-width: 970px) {
-      .kpjVPj {
-        width: 100%;
-      }
-    }
-    @media (max-width: 670px) {
-      .kpjVPj {
-        margin-inline-end: 23px;
-        margin-top: 16px;
-        margin-bottom: 32px;
-        flex-direction: column;
-        min-width: 245px;
-        padding-top: 0px;
-      }
-    }
-    .hzBTNA {
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.5);
-      padding-bottom: 8px;
-      transition: color 175ms ease-out 0s;
-    }
-    .hzBTNA:hover {
-      color: rgb(255, 255, 255);
-    }
-    @media (max-width: 670px) {
-      .hzBTNA {
-        padding-bottom: 4px;
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-    }
-    .gPYdku {
-      font-size: 14px;
-      font-weight: 400;
-      padding-bottom: 8px;
-      transition: color 175ms ease-out 0s;
-      color: rgb(100, 204, 240);
-    }
-    .gPYdku:hover {
-      color: rgb(255, 255, 255);
-    }
-    @media (max-width: 670px) {
-      .gPYdku {
-        padding-bottom: 4px;
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-    }
-    .gPNbMs {
-      padding: 0px;
-    }
-    .nxGHX {
-      width: 749px;
-      margin-bottom: 0px;
-    }
-    .gdGZhQ {
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.5);
-      padding-bottom: 8px;
-      transition: color 175ms ease-out 0s;
-    }
-    .gdGZhQ:hover {
-      color: rgb(255, 255, 255);
-    }
-    @media (max-width: 670px) {
-      .gdGZhQ {
-        padding-bottom: 4px;
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-    }
-    .jCGnid {
-      padding-inline-start: 30px;
-      padding-inline-end: 30px;
-    }
-  </style>
-
-  <body>
-    <nav class="navbar-menu">
-      <div class="nav-menu-select">
-        <a class="nav-hamburger">
-          <div class="hamburger bar1"></div>
-          <div class="hamburger bar2"></div>
-          <div class="hamburger bar3"></div>
-        </a>
-      </div>
-      <ul class="nav-menu-options">
-        <li>
-          <a
-            class="nav-item active"
-            href="https://aquabot.info"
-            onclick="window.location.href === 'https://aquabot.info'"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info/commands"
-            onclick="window.location.href === 'https://aquabot.info/commands'"
-            >Commands</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info/terms-and-conditions"
-            onclick="window.location.href === 'https://aquabot.info/terms-and-conditions'"
-            >Terms & Conditions</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-item"
-            href="https://aquabot.info/privacy-policy"
-            onclick="window.location.href === 'https://aquabot.info/privacy-policy'"
-            >Privacy Policy</a
-          >
-        </li>
-      </ul>
+<body>
+  <header>
+    <a href="/index.html">
+    <img class="logo" src="assets/images2/1024x1024.png" alt="logo">
+    </a>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/commands.html">Commands</a></li>
+            <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        </ul>
     </nav>
-    <div id="app-mount">
-      <div>
-        <div class="Aqua">
-          <div class="AquaInner">
-            <h1 class="h1">Create the best Discord Server!</h1>
-            <p class="AquaInnerp">
-              Moderation, Economy, Gambling, Coronavirus Tracking,
-              Music, Level System, Cryptocurrency, and More!
-            </p>
-            <div class="AquaButtons">
-              <div class="AquaButtonWrapper">
-                <button
-                  type="button"
-                  onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=889027125275922462&permissions=8&scope=bot%20applications.commands','_blank')"
-                  class="button brand default large grow"
-                  style="font-size: 17px; vertical-align: middle"
-                >
-                  <img
-                    alt="Aqua Bot Invite"
-                    style="margin-inline-end: 15px; vertical-align: middle"
-                  />
-                </button>
-              </div>
-              <div class="AquaButtonWrapper">
-                <button
-                  type="button"
-                  class="button brand default large grow"
-                  style="font-size: 17px; vertical-align: middle"
-                  onclick="window.open('https://discord.gg/fAD3jcexzM','_blank')"
-                >
-                  <img
-                    alt="Aqua Bot Support Server"
-                    style="margin-inline-end: 15px; vertical-align: middle"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section class="Section" id="1">
-          <div class="SectionInner">
+    <a class="cta" href="https://discord.gg/fAD3jcexzM" target="_blank" ><button>Support</button></a>
+</header>
+
+<!--Main Section Start-->
+
+<section class="main-section" id="2">
+  <div class="main-sectioninner">
+      <div class="main-sectionimg">
+          <img
+          src="assets/images/main-image.png"
+          alt="Welcome Messages & Leveling"
+          />
+  </div>
+      <div class="main-sectiontext">
+          <h1>Create the best Discord Server!</h1>
+          <p>
+            Moderation, Economy, Gambling, Music, Level System, Cryptocurrency, and More! 
+          </p>
+          <a class="main-button" href="https://discord.gg/fAD3jcexzM" target="_blank" ><button>Invite Aqua Bot</button></a>
+      </div>
+  </div>
+</section>
+
+<hr>
+<!--Alternating Section Start-->
+
+    <section class="Section" id="1">
+        <div class="SectionInner">
             <div class="SectionImg">
-              <img
-                src="https://aquabot.info/assets/images/1.png"
+                <img
+                src="assets/images/Welcome Messages & Leveling.png"
                 alt="Welcome Messages & Leveling"
-              />
-            </div>
+                />
+        </div>
             <div class="SectionText">
-              <h1>Welcome Messages & Leveling</h1>
-              <p>
+                <h1>Welcome Messages & Leveling</h1>
+                <p>
                 Take advantage of our custom welcome messages to inform your new
                 members of server rules, channels, and more.
-              </p>
-              <p>
+                </p>
+                <p>
                 You can even have your members gain experience for sending messages
                 in your chat. Leveling can be turned on or off dependant on your 
                 preferences.
-              </p>
+                </p>
             </div>
-          </div>
-        </section>
-        <section class="Section">
-          <div class="SectionInner">
+        </div>
+    </section>   
+    
+    <section class="Section">
+        <div class="SectionInner">
             <div class="SectionImg">
-              <img src="https://aquabot.info/assets/images/2.png" alt="Moderation" />
+                <img src="assets/images/Moderation.png" alt="Moderation" />
             </div>
             <div class="SectionText">
-              <h1>Moderation</h1>
-              <p>
+                <h1>Moderation</h1>
+                <p>
                 Use our amazing moderation system to carry out any moderator
                 tasks whether is be banning / kicking people or muting people. 
                 You can even set and use your own custom mute role.
-              </p>
-              <p>
+                </p>
+                <p>
                 Aqua has many moderation commands to make your every day
                 moderator tasks a breeze. Don't worry about the hassle of doing
                 things manually, just use Aqua.
-              </p>
+                </p>
             </div>
+        </div>
+    </section>
+    <section class="Section">
+        <div class="SectionInner">
+          <div class="SectionImg">
+            <img
+              src="assets/images/Music.png"
+              alt="Music"
+            />
           </div>
-        </section>
-        <section class="Section">
-          <div class="SectionInner">
-            <div class="SectionImg">
-              <img
-                src="https://aquabot.info/assets/images/3.png"
-                alt="Music"
-              />
-            </div>
-            <div class="SectionText">
-              <h1>Music</h1>
-              <p>
-                Play your favorite music from YouTube, Spotify, and even Soundcloud.
-                You can skip, pause, resume, and even put music on repeat.
-              </p>
-              <p>
-                Want to listen to some music playlists? Then use a youtube playlist 
-                and automatically queue every song in the list!
-              </p>
-            </div>
+          <div class="SectionText">
+            <h1>Music</h1>
+            <p>
+              Play your favorite music from YouTube, Spotify, and even Soundcloud.
+              You can skip, pause, resume, and even put music on repeat.
+            </p>
+            <p>
+              Want to listen to some music playlists? Then use a youtube playlist 
+              and automatically queue every song in the list!
+            </p>
           </div>
-        </section>
-        <section class="Section">
-          <div class="SectionInner">
-            <div class="SectionImg">
-              <img src="https://aquabot.info/assets/images/4.png" alt="Economy & Gambling" />
-            </div>
-            <div class="SectionText">
-              <h1>Economy & Gambling</h1>
-              <p>
+        </div>
+      </section>
+      <section class="Section">
+        <div class="SectionInner">
+          <div class="SectionImg">
+            <img src="assets/images/Economy & Gambling.png" alt="Economy & Gambling" />
+          </div>
+          <div class="SectionText">
+            <h1>Economy & Gambling</h1>
+            <p>
                 Use our economy system to gain money and spend it on ranks through 
                 the bot, which can be seen globally. You can show off your wealth 
                 by making it to the top 5 richest people of all bot users.
-              </p>
-              <p>
+            </p>
+            <p>
                 Our gambling system offers users the ability to gain vasts amount of
                 wealth. Gamble your money on the blackjack table, or take your luck
                 on the slot machines.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="Section">
-          <div class="SectionInner">
-            <div class="SectionImg">
-              <img
-                src="https://aquabot.info/assets/images/3.png"
-                alt="Cryptocurrency & More"
-              />
-            </div>
-            <div class="SectionText">
-              <h1>Cryptocurrency & More</h1>
-              <p>
-                Use Aqua to check the current prices of the top 20 cryptocurrencies,
-                you can even view their percentage gain or loss over the past 24
-                hours.
-              </p>
-              <p>
-                Theres tons more features to Aqua Bot that you can check out, all 
-                you have to do is invite it to your server now!
-              </p>
-            </div>
-          </div>
-        </section>
-        <div class="sc-1659snh-0 eSjOZD">
-          <div
-            class="fz1i6o-1 Row hlBFRk"
-            style="
-              border-bottom: 1px solid rgb(48, 49, 52);
-              align-items: flex-start;
-              padding-top: 64px;
-              margin-bottom: 0px;
-            "
-          >
-            <div style="margin-right: 16px; min-width: 250px">
-              <span class="sc-1j4eqj8-0 cfUtWc">Aqua</span>
-              <p class="hvwg31-1 bwxDch">Copyright © 2020 - 2022</p>
-            </div>
-            <div class="hvwg31-3 kpjVPj">
-              <div class="hvwg31-2 sZecb">
-                <a class="hvwg31-4-t gdGZhQ" href="https://aquabot.info/">Home</a
-                ><a class="hvwg31-4-t gdGZhQ" href="https://aquabot.info/commands">Commands</a>
-              </div>
-              <div class="hvwg31-2 sZecb">
-                <a href="https://discord.gg/fAD3jcexzM" class="hvwg31-4 hzBTNA"
-                  >Support server</a
-                >
-              </div>
-              <div class="hvwg31-2 sZecb">
-                <a href="https://aquabot.info/terms-and-conditions" class="hvwg31-4 hzBTNA">Terms</a
-                ><a href="https://aquabot.info/privacy-policy" class="hvwg31-4 hzBTNA"
-                  >Privacy Policy</a
-                ><a href="mailto: support@aquabot.info" class="hvwg31-4 hzBTNA">Contact</a>
-              </div>
-            </div>
-          </div>
-          <div class="fz1i6o-1 Row hNlZZA" style="margin-bottom: 0px">
-            <div class="hvwg31-0 hvwg31-7 nxGHX">
-              <h2 class="hvwg31-5 gPNbMs">
-                Ready to create the best Discord server ?
-              </h2>
-              <p class="hvwg31-6 hzHOxP">
-                Aqua is the best Discord bot to grow your Discord server
-              </p>
-            </div>
-            <div class="sc-1diw3sg-0 LBBcq">
-              <button
-                class="hvwg31-8 jCGnid sc-1x57bl6-0 ilXNtH"
-                color="#5ac0de"
-                onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=889027125275922462&permissions=8&scope=bot%20applications.commands','_blank')"
-                style="font-size: 17px; vertical-align: middle"
-              >
-                Add to Discord
-              </button>
-            </div>
+            </p>
           </div>
         </div>
+      </section>
+      <section class="Section">
+        <div class="SectionInner">
+          <div class="SectionImg">
+            <img
+              src="assets/images/Cryptocurrency & More.png"
+              alt="Cryptocurrency & More"
+            />
+          </div>
+          <div class="SectionText">
+            <h1>Cryptocurrency & More</h1>
+            <p>
+              Use Aqua to check the current prices of the top 20 cryptocurrencies,
+              you can even view their percentage gain or loss over the past 24
+              hours.
+            </p>
+            <p>
+              Theres tons more features to Aqua Bot that you can check out, all 
+              you have to do is invite it to your server now!
+            </p>
+          </div>
+        </div>
+      </section>
+
+<!--Footer Starts Here-->
+
+<footer>
+  <div class="main-footer" style="align-items: flex-start; margin-bottom: 0px;">
+    <div style="margin-right: 16px; min-width:250px;">
+      <h4 class="aqua-bot">Aqua Bot</h4>
+      <p class="copyright">Copyright © 2020 - 2022</p>
+    </div>
+    <div class="social-links">
+      <div class="columns">
+        <a class="first-column" href="https://aquabot.info/">Home</a>
+        <a class="first-column" href="https://aquabot.info/commands">Commands</a>
+      </div>
+      <div class="columns">
+        <a class="second-column" href="#">Support Server</a>
+        <a class="second-column" href="#">Terms & Conditions</a>
+      </div>
+      <div class="columns">
+        <a class="third-column" href="#">Privacy Policy</a>
+        <a class="third-column" href="#">Contact</a>
       </div>
     </div>
-  </body>
+    <div class="advertisement" style="margin-bottom: 0px;">
+      <div class="advertise-text">
+        <h2 class="ready-to-create">Ready to create the best Discord server?</h2>
+        <p class="grow-your-server">Aqua is the best Discord bot to grow your Discord server</p>
+      </div>
+    </div>
+    <div class="add-button">
+      <button class="add-to-discord" color:"#5ac0de" onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=889027125275922462&permissions=8&scope=bot%20applications.commands','_blank')" style="font-size: 17px; vertical-align: middle;">Add to Discord</button>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
