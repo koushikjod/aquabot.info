@@ -557,6 +557,13 @@
       font-weight: bold;
       padding-left: 0px;
     }
+
+    @media (max-width: 970px) {
+      .commands-header-container .commands-header {
+        text-align: center;
+      }
+    }
+
     .commands-container {
       margin-top: 0px !important;
       background-color: #222;
@@ -776,7 +783,7 @@ h4 {
       </a>
       <nav>
           <ul class="nav_links">
-              <li><a href="/index.html">Home</a></li>
+              <li><a class="home-button" href="/index.html">Home</a></li>
               <li><a href="/commands.html">Commands</a></li>
               <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
               <li><a href="/privacy-policy.html">Privacy Policy</a></li>
@@ -1342,6 +1349,12 @@ header {
     .nav_links li a{
         font-size: 12px;
     }
+}
+
+@media (max-width: 970px) {
+  .home-button {
+      padding-left: 14px;
+  }
 }
 
 .cta {

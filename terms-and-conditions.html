@@ -93,7 +93,7 @@
       content: "";
       display: block;
       width: 50%;
-      margin: 150px 0;
+      margin: 130px 0;
     }
     @media (max-width: 970px) {
       .Section:after {
@@ -198,6 +198,7 @@
     @media (max-width: 970px) {
       .Section .SectionInner .SectionText h1 {
         text-align: center;
+        width: 100%;
       }
     }
     .Section .SectionInner .SectionText p {
@@ -206,13 +207,14 @@
       width: 800px;
       font-size: 19px;
       color: #969899;
-      line-height: 2.2em;
+      line-height: 1.8em;
       margin-top: 5px;
     }
     @media (max-width: 970px) {
       .Section .SectionInner .SectionText p {
         text-align: center;
         padding: 0;
+        width: 100%;
       }
     }
 
@@ -294,6 +296,8 @@
         margin: 0 auto;
         margin-bottom: 20px;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -435,7 +439,7 @@ h4 {
       </a>
       <nav>
           <ul class="nav_links">
-              <li><a href="/index.html">Home</a></li>
+              <li><a class="home-button" href="/index.html">Home</a></li>
               <li><a href="/commands.html">Commands</a></li>
               <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
               <li><a href="/privacy-policy.html">Privacy Policy</a></li>
@@ -504,6 +508,12 @@ header {
     margin-bottom: 4em;
 }
 
+@media (max-width: 970px) {
+  header {
+    margin-bottom: 0;
+  }
+}
+
 .logo {
     cursor: pointer;
     max-width: 80px;
@@ -538,7 +548,7 @@ header {
         margin: 10px;
         margin-right: 40px;
         text-align: center;
-        padding-left: 20px;
+        padding-left: 0px;
         font-size: 2px;
     }
 }
@@ -555,6 +565,12 @@ header {
     .nav_links li a{
         font-size: 12px;
     }
+}
+
+@media (max-width: 970px) {
+  .home-button {
+      padding-left: 14px;
+  }
 }
 
 .cta {
