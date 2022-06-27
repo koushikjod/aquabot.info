@@ -60,6 +60,103 @@
     />
   </head>
 
+
+<!---POPUP--->
+  <style media="screen">
+
+.popup{
+  background-color: #3a3c44;
+  width: 420px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  font-family: "Poppins",sans-serif;
+  display: none; 
+  text-align: center;
+}
+.popup .close_button {
+  display: block;
+  margin:  auto;
+  padding-top: 7px;
+  background-color: transparent;
+  font-size: 20px;
+  color: #ffffff;
+      background: rgba(0,136,169,1);
+      border-radius: 50px;
+      width: 100px;
+      height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.popup h2{
+  margin-top: 0px;
+  background-color: #3a3c44;
+  display: flex;
+  justify-content: center;
+}
+.popup p{
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+  line-height: 25px;
+  background-color: #3a3c44;
+  color: white;
+}
+
+.pseudolink { 
+    color:white; 
+    background-color: #3a3c44;
+    text-decoration:underline; 
+    cursor:pointer; 
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="popup">
+      <h2>No Longer in Development</h2>
+      <p>
+        Aqua Bot is no longer under development and has been turned off. Thank you for those who used the bot. Feel free to use the 
+        <span 
+          class="pseudolink" 
+          onclick="window.open('https://github.com/fiji05/aquabot')">
+        open-sourced repository available here
+        </span> 
+        for any reason, like running your own bot, or learning Discord.py 2.0. 
+        <br> <br>
+        The website has also been open-sourced and is 
+        <span 
+        class="pseudolink" 
+        onclick="window.open('https://github.com/fiji05/aquabot.info')">
+        available here
+        </span> 
+      </p>
+      <a id="close" class="close_button" href="#"&times;>Close</a>
+  </div>
+  <!--Script-->
+  <script type="text/javascript">
+window.addEventListener("load", function(){
+  setTimeout(
+      function open(event){
+          document.querySelector(".popup").style.display = "block";
+      },
+      2000 
+  )
+});
+
+
+
+document.querySelector("#close").addEventListener("click", function(){
+  document.querySelector(".popup").style.display = "none";
+});
+  </script>
+
 <body>
   <header>
     <a href="/index.html">
